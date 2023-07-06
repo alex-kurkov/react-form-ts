@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { Input } from '../input';
+import { TextInput } from '../text-input';
 import { Button } from '../button';
 
 type Props = {
@@ -12,14 +12,18 @@ const initialState: SignInFormValues = {
   password: '',
 };
 
-export const SignIn: FC<Props> = ({ submitButtonText, onFormSubmit, ...props }) => {
+export const SignIn: FC<Props> = ({
+  submitButtonText,
+  onFormSubmit,
+  ...props
+}) => {
   const [values, setValues] = useState<SignInFormValues>(initialState);
 
   const handleChange = (e: React.BaseSyntheticEvent) => {
     setValues((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
-    }))
+    }));
   };
 
   const handleSubmit = (e: React.BaseSyntheticEvent) => {
@@ -32,7 +36,7 @@ export const SignIn: FC<Props> = ({ submitButtonText, onFormSubmit, ...props }) 
     <form {...props} onSubmit={handleSubmit} noValidate>
       <fieldset>
         <legend>Sign In</legend>
-        <Input
+        <TextInput
           onChange={handleChange}
           placeholder="Email"
           name="email"
@@ -41,17 +45,15 @@ export const SignIn: FC<Props> = ({ submitButtonText, onFormSubmit, ...props }) 
           label="EMAIL"
           value={values.email}
         />
-        <Input
+        <TextInput
           onChange={handleChange}
           name="password"
           placeholder="Password"
           type="password"
           value={values.password}
         />
+        <Button type="submit">{submitButtonText}</Button>
       </fieldset>
-      <Button type="submit">
-        {submitButtonText}
-      </Button>
     </form>
   );
 };

@@ -1,7 +1,8 @@
 import React, { FC, useState } from 'react';
-import { Input } from '../input';
+import { TextInput } from '../text-input';
 import { Button } from '../button';
 import { AtIcon } from '../icon';
+import { RadioInput } from '../radio-input';
 
 type Props = {
   submitButtonText: string;
@@ -38,7 +39,7 @@ export const SignUp: FC<Props> = ({ submitButtonText, onFormSubmit, ...props }) 
     <form {...props} onSubmit={handleSubmit} noValidate>
       <fieldset>
         <legend>Sign Up</legend>
-        <Input
+        <TextInput
           onChange={handleChange}
           placeholder="John Doe"
           name="name"
@@ -47,7 +48,7 @@ export const SignUp: FC<Props> = ({ submitButtonText, onFormSubmit, ...props }) 
           label="Email"
           value={values.email}
         />
-        <Input
+        <TextInput
           onChange={handleChange}
           placeholder="doewee"
           name="nick"
@@ -55,10 +56,10 @@ export const SignUp: FC<Props> = ({ submitButtonText, onFormSubmit, ...props }) 
           variant="plain"
           label="Nick"
           value={values.email}
-          description='введите свой ник'
+          description="введите свой ник"
           icon={<AtIcon />}
         />
-        <Input
+        <TextInput
           onChange={handleChange}
           placeholder="doe@google.com"
           name="email"
@@ -67,7 +68,7 @@ export const SignUp: FC<Props> = ({ submitButtonText, onFormSubmit, ...props }) 
           label="Email"
           value={values.email}
         />
-        <Input
+        <RadioInput
           onChange={handleChange}
           type="radio"
           value="male"
@@ -75,7 +76,7 @@ export const SignUp: FC<Props> = ({ submitButtonText, onFormSubmit, ...props }) 
           name="gender"
           checked={values.gender === 'male'}
         />
-        <Input
+        <RadioInput
           onChange={handleChange}
           type="radio"
           value="female"
@@ -83,7 +84,7 @@ export const SignUp: FC<Props> = ({ submitButtonText, onFormSubmit, ...props }) 
           name="gender"
           checked={values.gender === 'female'}
         />
-        <Input
+        <TextInput
           onChange={handleChange}
           name="password"
           placeholder="topsecret"
@@ -91,7 +92,7 @@ export const SignUp: FC<Props> = ({ submitButtonText, onFormSubmit, ...props }) 
           label="Password"
           value={values.password}
         />
-        <Input
+        <TextInput
           onChange={handleChange}
           name="password"
           label="Password repeat"
@@ -99,8 +100,8 @@ export const SignUp: FC<Props> = ({ submitButtonText, onFormSubmit, ...props }) 
           type="password"
           value={values.passwordRepeat}
         />
+        <Button type="submit"> {submitButtonText} </Button>
       </fieldset>
-      <Button type="submit"> {submitButtonText} </Button>
     </form>
   );
 };
