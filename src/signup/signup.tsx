@@ -1,8 +1,7 @@
 import React, { FC, useState } from 'react';
-import { TextInput } from '../text-input';
+import { TextInput, RadioInput } from '../input';
 import { Button } from '../button';
 import { AtIcon } from '../icon';
-import { RadioInput } from '../radio-input';
 
 type Props = {
   submitButtonText: string;
@@ -38,26 +37,29 @@ export const SignUp: FC<Props> = ({ submitButtonText, onFormSubmit, ...props }) 
   return (
     <form {...props} onSubmit={handleSubmit} noValidate>
       <fieldset>
-        <legend>Sign Up</legend>
+        <legend>Зарегистрироваться</legend>
         <TextInput
           onChange={handleChange}
           placeholder="John Doe"
           name="name"
           type="text"
           variant="plain"
-          label="Email"
-          value={values.email}
+          inputSize="s"
+          description="введите свое имя"
+          label="Имя"
+          value={values.name}
+          error="не менее 3 символов"
         />
         <TextInput
           onChange={handleChange}
           placeholder="doewee"
           name="nick"
           type="text"
-          variant="plain"
-          label="Nick"
-          value={values.email}
+          label="Ник"
+          inputSize="l"
+          value={values.nick}
           description="введите свой ник"
-          icon={<AtIcon />}
+          icon={<AtIcon color="#111" size="s" />}
         />
         <TextInput
           onChange={handleChange}
@@ -72,6 +74,7 @@ export const SignUp: FC<Props> = ({ submitButtonText, onFormSubmit, ...props }) 
           onChange={handleChange}
           type="radio"
           value="male"
+          inputSize="l"
           label="Male"
           name="gender"
           checked={values.gender === 'male'}
@@ -82,6 +85,7 @@ export const SignUp: FC<Props> = ({ submitButtonText, onFormSubmit, ...props }) 
           value="female"
           label="Female"
           name="gender"
+          radius='l'
           checked={values.gender === 'female'}
         />
         <TextInput
@@ -90,15 +94,16 @@ export const SignUp: FC<Props> = ({ submitButtonText, onFormSubmit, ...props }) 
           placeholder="topsecret"
           type="password"
           label="Password"
+          variant="bordered"
           value={values.password}
         />
         <TextInput
           onChange={handleChange}
-          name="password"
+          name="passwordRepeat"
           label="Password repeat"
-          placeholder="topsecret"
           type="password"
           value={values.passwordRepeat}
+          variant="filled"
         />
         <Button type="submit"> {submitButtonText} </Button>
       </fieldset>

@@ -3,4 +3,8 @@
   white-space: nowrap;
   color: black;
   border: 1px solid #000;
+  font-size: 24px;
+  width: 100%;
+  padding: 4px 20px;
+  border-radius: 4px;
 }

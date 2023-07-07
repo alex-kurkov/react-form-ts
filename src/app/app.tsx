@@ -4,7 +4,7 @@ import { SignIn } from '../signin';
 import { SignUp } from '../signup';
 
 export function App() {
-  const [showRegister, setShowRegister] = useState(false);
+  const [showRegister, setShowRegister] = useState(true);
 
   const handleSubmit: OnFormSubmit = (data) => {
     console.log('Submitting data: ', data);

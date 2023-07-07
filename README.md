@@ -1,9 +1,5 @@
 # Getting Started with Create React App
 
-.input[type='radio']:checked ~ .label::before {
-  background-color: olivedrab;
-}
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

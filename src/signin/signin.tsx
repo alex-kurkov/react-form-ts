@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { TextInput } from '../text-input';
+import { TextInput } from '../input';
 import { Button } from '../button';
 
 type Props = {
@@ -44,6 +44,7 @@ export const SignIn: FC<Props> = ({
           variant="plain"
           label="EMAIL"
           value={values.email}
+          withAsterisk
         />
         <TextInput
           onChange={handleChange}
@@ -51,6 +52,7 @@ export const SignIn: FC<Props> = ({
           placeholder="Password"
           type="password"
           value={values.password}
+          withAsterisk
         />
         <Button type="submit">{submitButtonText}</Button>
       </fieldset>

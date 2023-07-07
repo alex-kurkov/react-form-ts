@@ -1,0 +1,17 @@
+.icon-at {
+  display: flex;
+}
+
+.icon-at_size_s {
+  width: 20px;
+  height: 20px;
+}
+.icon-at_size_m {
+  width: 28px;
+  height: 28px;
+}
+.icon-at_size_l {
+  width: 36px;
+  height: 36px;
+}
+

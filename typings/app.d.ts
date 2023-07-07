@@ -1,9 +1,11 @@
 declare global {
+  export type Sizes = 's' | 'm' | 'l';
+
   export type TextInputProps = {
     name: string;
     variant?: 'plain' | 'bordered' | 'filled';
-    radius?: 'xs' | 's' | 'm' | 'l';
-    size?: 's' | 'm' | 'l';
+    radius?: Sizes;
+    inputSize?: Sizes;
     error?: string | boolean;
     label?: string;
     description?: string;
@@ -14,9 +16,9 @@ declare global {
 
   export type RadioInputProps = {
     name: string;
-    variant?: 'plain' | 'bordered' | 'filled';
-    size?: 's' | 'm' | 'l';
+    inputSize?: Sizes;
     label?: string;
+    radius?: Sizes;
     type: 'radio';
   } & JSX.IntrinsicElements['input'];
 

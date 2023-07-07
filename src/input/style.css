@@ -1,0 +1,163 @@
+.input-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  padding: 8px 4px 20px;
+  text-align: left;
+}
+
+.input {
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  display: block;
+  cursor: pointer;
+  min-height: 30px;
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: inset 0 0 4px 1px green;
+}
+
+.input:disabled {
+  pointer-events: none;
+  opacity: 50%;
+}
+
+.input_size_s {
+  height: 24px;
+}
+
+.input_size_m {
+  height: 32px;
+}
+
+.input_size_l {
+  height: 40px;
+}
+
+.input_variant_plain {
+  border: none;
+}
+.input_variant_bordered {
+  border: 1px solid #d9d9d9;
+}
+.input_variant_filled {
+  border: none;
+  background-color: #999;
+}
+
+.input_radius_s {
+  border-radius: 2px;
+}
+.input_radius_m {
+  border-radius: 6px;
+}
+.input_radius_l {
+  border-radius: 12px;
+}
+
+.input-icon-wrap {
+  position: relative;
+}
+
+.icon_pos_absolute {
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.input_icon {
+  padding-left: 30px;
+}
+
+.asterisk {
+  color: red;
+}
+
+.label {
+  line-height: 1;
+  font-weight: 500;
+}
+
+.label_size_s {
+  font-size: 20px;
+}
+
+.label_size_m {
+  font-size: 28px;
+}
+
+.label_size_l {
+  font-size: 36px;
+}
+
+.label_radius_s::before {
+  border-radius: 2px;
+}
+.label_radius_m::before {
+  border-radius: 8px;
+}
+.label_radius_l::before {
+  border-radius: 12px;
+}
+
+
+.description {
+  line-height: 1.2;
+  font-weight: 200;
+}
+
+.description_size_s {
+  font-size: 16px;
+}
+
+.description_size_m {
+  font-size: 20px;
+}
+
+.description_size_l {
+  font-size: 24px;
+}
+
+.input[type='radio'] {
+  display: none;
+}
+
+.input[type='radio'] ~ .label {
+  cursor: pointer;
+  user-select: none;
+}
+
+.input[type='radio'] ~ .label::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  padding-bottom: 20px;
+  background-color: aliceblue;
+  margin-right: 8px;
+}
+
+.input[type='radio']:checked ~ .label::before {
+  background-color: olivedrab;
+}
+
+.error {
+  font-size: 12px;
+  color: red;
+  position: absolute;
+  bottom: -14px;
+  left: 0;
+  font-weight: 200;
+}
+
+.input_error {
+  border-bottom: 1px solid red;
+  color: red;
+}
+
+.input_error:focus {
+  box-shadow: inset 0 0 4px 1px red;
+}
