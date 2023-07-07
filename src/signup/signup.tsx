@@ -67,6 +67,7 @@ export const SignUp: FC<Props> = ({ submitButtonText, onFormSubmit, ...props }) 
           name="email"
           type="email"
           variant="plain"
+          error
           label="Email"
           value={values.email}
         />
@@ -85,7 +86,7 @@ export const SignUp: FC<Props> = ({ submitButtonText, onFormSubmit, ...props }) 
           value="female"
           label="Female"
           name="gender"
-          radius='l'
+          radius="l"
           checked={values.gender === 'female'}
         />
         <TextInput

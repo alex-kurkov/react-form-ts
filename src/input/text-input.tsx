@@ -7,10 +7,10 @@ export const TextInput: FC<TextInputProps> = ({
   label,
   description,
   variant = 'plain',
-  radius = 'l',
+  radius = 'm',
   withAsterisk = false,
   icon,
-  inputSize = 's',
+  inputSize = 'm',
   ...props
 }) => {
   const inputId = useId();
