@@ -1,46 +1,57 @@
-# Getting Started with Create React App
+# чтобы начать после скачивания
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```bash
+npm i
+#затем
+npm start
+```
 
-## Available Scripts
+реализованы базовые элементы ui-кита - `TextInput`, `RadioInput`, `Button`, `SignIn`, `SignUp`
 
-In the project directory, you can run:
+Для уменьшения сложности (меньше ветвлений в рендер-функции, существенная разница в доступных пропсах) и большей читабельности компонент Input разбит на текстовый(`type=text|password|email`) и радио-инпуты 
 
-### `npm start`
+Сигнатура пропсов `TextInput`:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```typescript
+type Sizes = 's' | 'm' | 'l'
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+type TextInputProps = {
+    name: string;
+    variant?: 'plain' | 'bordered' | 'filled';
+    radius?: Sizes;
+    inputSize?: Sizes;
+    error?: string | boolean;
+    label?: string;
+    description?: string;
+    withAsterisk?: boolean;
+    icon?: JSX.Element;
+    type: 'text' | 'password' | 'email';
+} & JSX.IntrinsicElements['input'];
+```
 
-### `npm test`
+что позволяет поддерживать в том числе явно не указанные стандартные аттрибуты элемента `input`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Аналогично - с пропсами  `RadioInput`:
+```typescript
+type Sizes = 's' | 'm' | 'l'
 
-### `npm run build`
+type RadioInputProps = {
+    name: string;
+    inputSize?: Sizes;
+    label: string;
+    radius?: Sizes;
+    type: 'radio';
+  } & JSX.IntrinsicElements['input'];
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Стилизация компонентов через пропсы - при помощи присвоения классов (для удобства - объединение селекторов через либу `classnames`)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Инпуты - управляемые. Родительский компонент (`SignIn` или `SignUp`) оперирует стейтом со значениями инпутов и в соответсвии с ТЗ подставляет во время сабмита значения инпуотв в переданный сверху в пропсах колбек `onFormSubmit`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Из особенностей - так как приложение написано на TS, а также для возможности использования нативных аттрибутов реакт-компонентов, пришлось кое-где изменить нейминг - например, вместо пропса size на инпутах передавать inputSize, а вместо onSubmit в форму прокидывать onFormSubmit
 
-### `npm run eject`
+legend, fieldset - не стилизованы (не было задачи), минимальная стилизация button и form
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Стилизация компонентов не претендует на супер-эстетику - только чтобы реализовать ТЗ
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Переключение между формами - по клику на вопрос внизу
